@@ -1,5 +1,5 @@
 <?php 
-include 'conn.php';
+include '../conn.php';
   $nama_project    = $_POST['nama_project'];
   $jenis_project    = $_POST['jenis_project'];
   $tanggal_rencana     = $_POST['tanggal_rencana'];
