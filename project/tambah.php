@@ -11,23 +11,26 @@
                                         </div>
                                         <hr>
                                         <form method="post" action="project/simpan.php" novalidate="novalidate">
-                                            <div class="form-group">
-                                                <label for="cc-payment" class="control-label mb-1">Nama Project</label>
-                                                <input id="nama_project" name="nama_project" type="text" class="form-control" aria-required="true" aria-invalid="false">
-                                            </div>
                                             <div class="form-group has-success">
                                                 <label for="cc-name" class="control-label mb-1">Jenis</label>
                                                 <select name="jenis_project" id="jenis_project" class="form-control">
                                                         <option value="0">--- Pilih ---</option>
+                                                        <option value="RTRW Nasional">RTRW Nasional</option>
+                                                        <option value="RTR Pulau">RTR Pulau</option>
+                                                        <option value="RTR KSN">RTR KSN</option>
+                                                        <option value="RDTR Kawasan Perbatasan Negara">RDTR Kawasan Perbatasan Negara</option>
                                                         <option value="RTRW Provinsi">RTRW Provinsi</option>
-                                                        <option value="RTRW Kota">RTRW Kota</option>
                                                         <option value="RTRW Kabupaten">RTRW Kabupaten</option>
-                                                        <option value="Kawasan Budidaya">Kawasan Budidaya</option>
-                                                        <option value="Kawasan Reklamasi">Kawasan Reklamasi</option>
+                                                        <option value="RTRW Kota">RTRW Kota</option>
+                                                        <option value="RTRW Kawasan Perkotaan">RTRW Kawasan Perkotaan</option>
                                                     </select>
                                                 <!-- <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card"
                                                     autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
                                                 <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span> -->
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="cc-payment" class="control-label mb-1">Nama Project</label>
+                                                <input id="nama_project" name="nama_project" type="text" class="form-control" aria-required="true" aria-invalid="false">
                                             </div>
                                             <div class="form-group">
                                                 <label for="cc-number" class="control-label mb-1">Tanggal Rencana</label>
