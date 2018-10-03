@@ -13,10 +13,8 @@
                                             <tr style="background-color: #ccc;">
                                                 <th>No</th>
                                                 <th>Nama Project</th>
-                                                <th>Jenis</th>
-                                                <th>Tanggal Rencana</th>
-                                                <th>Tanggal Progress</th>
-                                                <th>Status</th>
+                                                <th>Jenis Penyusunan</th>
+                                                <th>Prosentase</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -37,14 +35,10 @@
                                                 <td><?php echo  $no;?></td>
                                                 <td><?php echo  $data['nama_project']; ?></td>
                                                 <td><?php echo  $data['codesDesc1']; ?></td>
-                                                <td><?php echo  $data['tanggal_rencana']; ?></td>
-                                                <td><?php echo  $data['tanggal_progress']; ?></td>
                                                 <td><?php echo  $data['status']; ?></td>
                                                 <td>
 
-                                                    <a href="index.php?menu=t_project&hal=view&no_project=<?php echo $data['no_project'];?>">View</a> |
-                                                    <a href="index.php?menu=t_project&hal=edit&no_project=<?php echo $data['no_project'];?>">Edit</a> |
-                                                    <a href="index.php?menu=t_project&hal=delete&no_project=<?php echo $data['no_project'];?>">Delete</a>
+                                                    <a href="index.php?menu=g_penyusunan&hal=view&nama_project=<?php echo $data['nama_project'];?>">View Project</a>
                                                 </td>
                                             </tr>
                                             <?php

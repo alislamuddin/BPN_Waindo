@@ -1,4 +1,21 @@
+<?php
+include 'conn.php';
 
+
+
+$queryEdit = "SELECT *
+                FROM project
+                LEFT OUTER JOIN CODES
+                    ON jenis_project = codesCodes AND codesHeads != 0
+                WHERE no_project  ='$_REQUEST[no_project]'";
+
+$resultEdit = mysqli_query($koneksi, $queryEdit);
+$data  = mysqli_fetch_array($resultEdit);
+
+// echo $data['codesDesc1'];
+
+
+?>
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
@@ -12,55 +29,55 @@
                                         <hr>
                                         <form method="post" action="project/simpan.php" novalidate="novalidate">
                                             <div class="form-group has-success">
-                                                <label for="cc-name" class="control-label mb-1">Jenis</label>
+                                                <input id="no_project" name="no_project" type="hidden" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $data['no_project']; ?>">
+                                                <label class="control-label mb-1">Jenis</label>
                                                 <select name="jenis_project" id="jenis_project" class="form-control">
-                                                        <option value="0">--- Pilih ---</option>
-                                                        <option value="RTRW Nasional">RTRW Nasional</option>
-                                                        <option value="RTR Pulau">RTR Pulau</option>
-                                                        <option value="RTR KSN">RTR KSN</option>
-                                                        <option value="RDTR Kawasan Perbatasan Negara">RDTR Kawasan Perbatasan Negara</option>
-                                                        <option value="RTRW Provinsi">RTRW Provinsi</option>
-                                                        <option value="RTRW Kabupaten">RTRW Kabupaten</option>
-                                                        <option value="RTRW Kota">RTRW Kota</option>
-                                                        <option value="RTRW Kawasan Perkotaan">RTRW Kawasan Perkotaan</option>
+                                                    <?php
+                                                        echo "<option value='" . $data['codesCodes'] . "'>" .$data['codesDesc1'] . "</option>";
+
+                                                        $queryJenis= "SELECT * FROM CODES WHERE codesHeads = 1 AND  codesCodes != 0";
+                                                        $tampilJenis=mysqli_query($koneksi, $queryJenis) or die(mysqli_error());
+                                                        while($dataJenis=mysqli_fetch_array($tampilJenis))
+                                                        {
+                                                            echo "<option value='" . $dataJenis['codesCodes'] . "'>" .$dataJenis['codesDesc1'] . "</option>";
+                                                        }
+
+
+                                                    ?>
+
                                                     </select>
-                                                <!-- <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card"
-                                                    autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
-                                                <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span> -->
+
                                             </div>
                                             <div class="form-group">
                                                 <label for="cc-payment" class="control-label mb-1">Nama Project</label>
-                                                <input id="nama_project" name="nama_project" type="text" class="form-control" aria-required="true" aria-invalid="false">
+                                                <input id="nama_project" name="nama_project" type="text" class="form-control" aria-required="true" aria-invalid="false" value="<?php echo $data['nama_project']; ?>" >
                                             </div>
                                             <div class="form-group">
                                                 <label for="cc-number" class="control-label mb-1">Tanggal Rencana</label>
-                                                <input id="tanggal_rencana" name="tanggal_rencana" type="date" class="form-control cc-number identified visa">
-                                                <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
+                                                <input id="tanggal_rencana" name="tanggal_rencana" type="date" class="form-control" value="<?php echo $data['tanggal_rencana']; ?>">
+                                                <span class="help-block" ></span>
                                             </div>
-                                            <!-- <div class="row">
-                                                <div class="col-6">
-                                                    <div class="form-group">
-                                                        <label for="cc-exp" class="control-label mb-1">Expiration</label>
-                                                        <input id="cc-exp" name="cc-exp" type="tel" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration"
-                                                            data-val-cc-exp="Please enter a valid month and year" placeholder="MM / YY"
-                                                            autocomplete="cc-exp">
-                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-6">
-                                                    <label for="x_card_code" class="control-label mb-1">Security code</label>
-                                                    <div class="input-group">
-                                                        <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc" value="" data-val="true" data-val-required="Please enter the security code"
-                                                            data-val-cc-cvc="Please enter a valid security code" autocomplete="off">
 
-                                                    </div>
-                                                </div>
-                                            </div> -->
                                             <div class="form-group">
+                                                <input id="simpan" name="simpan" type="hidden" class="form-control" aria-required="true" aria-invalid="false">
                                                 <div class="col-lg-offset-2 col-lg-10">
-                                                <button type="submit" class="btn btn-primary">Simpan</button>
-                                                <button class="btn btn-danger"><a href="#" style="color: white;">Batal</a></button>
-                                                </div>
+                                                <?php
+
+                                                    $hal = $_REQUEST['hal'];
+                                                    // echo $hal;
+
+                                                    if ($hal == 'delete') {
+                                                        echo "<button type='submit' id='btnDelete' class='btn btn-primary' onclick='return confirm_alert(this);'>Delete</button>";
+                                                     }
+                                                     else if($hal == 'add'){
+                                                        echo "<button type='submit' id='btnTambah' class='btn btn-primary'>Simpan</button>";
+                                                    }
+                                                     else if($hal == 'edit'){
+                                                        echo "<button type='submit' id='btnEdit' class='btn btn-primary'>Simpan</button>";
+                                                    }
+
+                                                ?>
+                                                <button type="button" class="btn btn-default btn-success" onclick="history.back();" >Batal </button>
                                             </div>
                                         </form>
                                     </div>
@@ -69,4 +86,33 @@
                         </div>
                     </div>
                 </div>
-            </div
+            </div>
+<?php
+// echo $hal;
+$hal = $_REQUEST['hal'];
+
+echo "<script type='text/javascript'>";
+if ($hal == 'delete') {
+    echo "$(document).ready(function(){
+                $('#btnDelete').click(function(){
+                    document.getElementById('simpan').value='delete';
+                });
+            });";
+ }
+ else if($hal == 'add'){
+    echo "$(document).ready(function(){
+                $('#btnTambah').click(function(){
+                    document.getElementById('simpan').value='add';
+                });
+            });";
+}
+ else if($hal == 'edit'){
+    echo "$(document).ready(function(){
+                $('#btnEdit').click(function(){
+                    document.getElementById('simpan').value='edit';
+                });
+            });";
+}
+echo "</script>";
+
+?>

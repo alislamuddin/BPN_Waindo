@@ -6,40 +6,48 @@
                             <div class="col-lg-6">
                                 <div class="au-card m-b-30">
                                     <div class="au-card-inner">
-                                        <h3 class="title-2 m-b-40">Yearly Sales</h3>
-                                        <canvas id="sales-chart"></canvas>
+                                        <h3 class="title-2 m-b-40">RTR Pulau</h3>
+                                        <canvas id="rtr-pulau"></canvas>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="au-card m-b-30">
                                     <div class="au-card-inner">
-                                        <h3 class="title-2 m-b-40">Team Commits</h3>
-                                        <canvas id="team-chart"></canvas>
+                                        <h3 class="title-2 m-b-40">RTR KSN</h3>
+                                        <canvas id="rtr-ksn"></canvas>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="au-card m-b-30">
                                     <div class="au-card-inner">
-                                        <h3 class="title-2 m-b-40">Bar chart</h3>
-                                        <canvas id="barChart"></canvas>
+                                        <h3 class="title-2 m-b-40">RDTR Kawasan Perbatasan Negara</h3>
+                                        <canvas id="rtr-kpn"></canvas>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="au-card m-b-30">
                                     <div class="au-card-inner">
-                                        <h3 class="title-2 m-b-40">Rader chart</h3>
-                                        <canvas id="radarChart"></canvas>
+                                        <h3 class="title-2 m-b-40">RTRW Provinsi</h3>
+                                        <canvas id="rtrw-provinsi"></canvas>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="au-card m-b-30">
                                     <div class="au-card-inner">
-                                        <h3 class="title-2 m-b-40">Line Chart</h3>
-                                        <canvas id="lineChart"></canvas>
+                                        <h3 class="title-2 m-b-40">RTRW Kota</h3>
+                                        <canvas id="rtrw-kota"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="au-card m-b-30">
+                                    <div class="au-card-inner">
+                                        <h3 class="title-2 m-b-40">RTRW Kawasan Perkotaan</h3>
+                                        <canvas id="rtrw-kp"></canvas>
                                     </div>
                                 </div>
                             </div>
@@ -56,22 +64,6 @@
                                     <div class="au-card-inner">
                                         <h3 class="title-2 m-b-40">Pie Chart</h3>
                                         <canvas id="pieChart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="au-card m-b-30">
-                                    <div class="au-card-inner">
-                                        <h3 class="title-2 m-b-40">Polar Chart</h3>
-                                        <canvas id="polarChart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="au-card m-b-30">
-                                    <div class="au-card-inner">
-                                        <h3 class="title-2 m-b-40">Single Bar Chart</h3>
-                                        <canvas id="singelBarChart"></canvas>
                                     </div>
                                 </div>
                             </div>

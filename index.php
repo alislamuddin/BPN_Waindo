@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(!isset($_SESSION['username'])&&!isset($_SESSION['password'])){ 
+    if(!isset($_SESSION['username'])&&!isset($_SESSION['password'])){
     header('location:akses/login.php');}
     else{
     // $username=$_SESSION['username'];
@@ -43,7 +43,9 @@
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
     <link rel="shortcut icon" href="images/bpn.png" />
-    <style type="text/css">
+    <!-- Jquery JS-->
+    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->    <style type="text/css">
         [type="search"] {
 
             outline-offset: -2px;
@@ -51,10 +53,16 @@
             border-style: solid;
             border-width: 1px;
             width: 170px;
-            margin-right: 6px;  
+            margin-right: 6px;
 
         }
     </style>
+
+
+
+
+
+
 </head>
 
 <body class="animsition">
@@ -69,14 +77,15 @@
                   case('home');include('home.php');break;
                   case('project');include('project/project.php');break;
                   case('t_project');include('project/tambah.php');break;
+                  case('penyusunan');include('penyusunan/penyusunan.php');break;
+                  case('t_penyusunan');include('penyusunan/tambah.php');break;
+                  case('g_penyusunan');include('penyusunan/penyusunanGantt.php');break;
                 }
                 }
         ?>
     </div>
 
-    <!-- Jquery JS-->
-    <script src="vendor/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap JS-->
+
     <script src="vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
     <!-- Vendor JS       -->
@@ -97,7 +106,7 @@
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
-     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
+     <!-- <script src="https://ajax.googleapis.com/ajax/gantt/libs/jquery/3.1.0/jquery.min.js"></script> -->
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 
   <script type="text/javascript">

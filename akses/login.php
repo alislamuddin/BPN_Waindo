@@ -42,6 +42,9 @@
                 <div class="login-wrap">
                     <div class="login-content">
                         <div class="login-logo">
+                            <div class="card-title">
+                                <h3 class="text-center title-2">RTR BUILDER</h3>
+                            </div>
                             <a href="#">
                                 <img src="../images/bpn.png" style="width: 200px;">
                             </a>
